@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.example.dubbo.rpc";
+option java_outer_classname = "VoiceChatProto";
+
+package org.example.dubbo.chat;
+
+service VoiceChat {
+
+  rpc chat(stream VoiceChatRequest) returns (stream VoiceChatResponse);
+
+}
+
+message VoiceChatRequest {
+  string callId = 1;
+  bytes data = 3;
+}
+
+message VoiceChatResponse {
+  string callId = 1;
+  bytes data = 2;
+}

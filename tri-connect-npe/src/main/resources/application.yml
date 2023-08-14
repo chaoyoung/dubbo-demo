@@ -1,0 +1,23 @@
+logging:
+  level:
+    root: info
+
+dubbo:
+  application:
+    name: dubbo-tri-bistream-test
+    register-mode: instance
+    protocol: tri
+  scan:
+    base-packages: org.example.dubbo
+  protocol:
+    name: tri
+    port: 50051
+  registry:
+    address: zookeeper://localhost:2181
+    use-as-metadata-center: true
+    use-as-config-center: true
+  provider:
+    delay: -1
+    retries: 0
+  consumer:
+    check: false
